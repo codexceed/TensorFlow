@@ -14,6 +14,10 @@ val = dataset.values
 x_train = val[:, 0:1]
 m = x_train.shape[0] #number of data samples
 y_train = val[:, 1:2]
+fig = plt.figure()
+plt.scatter(x_train,y_train, color='red', marker='x')
+plt.ion()
+plt.show()
 theta = np.zeros((2, 1)) #initialize theta to 0
 
 #declare tensorflow varibles to be trained
@@ -58,9 +62,14 @@ print sess.run([theta1, theta2])
 predict = sess.run(h, {x:x_train}) #predict values using trained weights
 
 #plot the initial training data and the trained hypothesis
-plt.scatter(x_train,y_train, color='red', marker='x')
+
 plt.plot(x_train, predict)
-plt.show()
+plt.draw()
+plt.pause(10)
+
+
+
+
 
 
 
