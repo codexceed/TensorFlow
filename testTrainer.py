@@ -46,7 +46,7 @@ squared_error = (h-y)**2
 square_sum = (1.0/(2*float(m)))*tf.reduce_sum(squared_error, 0)
 
 #run the above declared equations(tensors)
-print sess.run(square_sum, {x:x_train, y:y_train})
+print(sess.run(square_sum, {x:x_train, y:y_train}))
 
 optimizer = tf.train.GradientDescentOptimizer(0.001)
 
@@ -56,8 +56,8 @@ for i in range(10000):
     sess.run(train, {x:x_train, y:y_train})
 
 
-print sess.run(square_sum, {x:x_train, y:y_train})
-print sess.run([theta1, theta2])
+print(sess.run(square_sum, {x:x_train, y:y_train}))
+print(sess.run([theta1, theta2]))
 
 predict = sess.run(h, {x:x_train}) #predict values using trained weights
 
