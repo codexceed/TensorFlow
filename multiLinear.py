@@ -20,7 +20,7 @@ theta = np.ones((n,1))
 x_train = np.concatenate((np.ones((m, 1)), x_train), axis=1)
 y_train = dataVal[:, 2:3]
 
-print x_train
+print(x_train)
 
 x = tf.placeholder(tf.float32)
 y = tf.placeholder(tf.float32)
@@ -46,7 +46,7 @@ train = optimizer.minimize(squared_error)
 
 for i in range(100):
     sess.run(train, {x:x_train, y:y_train})
-    print sess.run(J, {x: x_train, y: y_train})
+    print(sess.run(J, {x: x_train, y: y_train}))
 
 
 
