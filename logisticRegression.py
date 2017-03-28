@@ -43,16 +43,18 @@ sess.run(init)
 
 J = -(1/m)*tf.reduce_sum((y*tf.log(h)+(1-y)*tf.log(1-h)), 0)
 
-print(sess.run(J, {x:x_train, y:y_train}))
+print("Initial Cost: ",sess.run(J, {x:x_train, y:y_train})[0])
 
 optimizer = tf.train.GradientDescentOptimizer(12)
 
 train = optimizer.minimize(J)
 
-for i in range(1000):
+for i in range(100):
     sess.run(train, {x:x_train, y:y_train})
 
-print(sess.run(J, {x:x_train, y:y_train}))
+print("Final Cost: ", sess.run(J, {x:x_train, y:y_train})[0])
+
+print("Trained Weights: \n", sess.run(theta_Var))
 
 
 
